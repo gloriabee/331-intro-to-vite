@@ -1,11 +1,12 @@
 <script setup lang="ts">
   import EventCard from '@/components/EventCard.vue';
+  import EventCategory from '@/components/EventCategory.vue';
   import Event from '@/types/Event'
   import {ref} from 'vue'
   const events=ref<Event[]>([
     {
       id: 5928101,
-      categort: 'animal welfare',
+     category: 'animal welfare',
       title: 'Cat Adoption Day',
       description: 'Find your new feline friend at this event.',
       location: 'Meow Town',
@@ -16,7 +17,7 @@
     },
     {
       id:4582797,
-      categort: 'food',
+     category: 'food',
       title: 'Community gardening',
       description: 'Join us as we tend to the community edible plants',
       location: 'Flora city',
@@ -27,7 +28,7 @@
     },
     {
       id:8419988,
-      categort: 'sustainability',
+      category: 'sustainability',
       title: 'Beach Cleanup',
       description: 'Help pick up trash along the shore',
       location: 'Playa Del Carmen',
@@ -41,7 +42,15 @@
 </script>
 
 <template>
- <div class="home">
+ <div class="events">
   <EventCard v-for="event in events" :key="event.id" :event="event"/>
+  <EventCategory v-for="event in events" :key="event.id" :event="event"></EventCategory>
  </div>
 </template>
+
+<style scoped>
+.events{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}</style>

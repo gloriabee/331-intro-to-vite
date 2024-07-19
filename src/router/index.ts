@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import EventListView from '@/views/EventListView.vue'
 import AboutView from '@/views/AboutView.vue'
+import EventDetailView from '@/views/EventDetailView.vue'
 import StudentView from '@/views/StudentView.vue'
 
 const router = createRouter({
@@ -12,6 +13,15 @@ const router = createRouter({
       component: EventListView
     },
     {
+      path: '/event/:id',
+      name: 'event-detail-view',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component:EventDetailView,
+      props:true
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
@@ -19,6 +29,7 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: AboutView
     },
+   
     {
       path:'/students',
       name:'student',

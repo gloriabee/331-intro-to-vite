@@ -35,7 +35,10 @@ const router = createRouter({
           path: '',
           name: 'event-detail-view',
           component: EventDetailView,
-          props: true
+          props: (route) => ({
+            id: route.params.id,
+            message: route.params.message
+          })
         },
         {
           path: 'register',

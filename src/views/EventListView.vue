@@ -4,7 +4,6 @@ import EventCategory from '@/components/EventCategory.vue'
 import { type Event } from '@/types'
 import { ref, onMounted, computed, watchEffect } from 'vue'
 import EventService from '@/services/EventService'
-import nProgress from 'nprogress'
 
 const events = ref<Event[] | null>(null)
 const totalEvents = ref(0)
@@ -41,8 +40,9 @@ onMounted(() => {
 
 <template>
   <!--new element-->
-  <div class="events">
-    <h1>Events For Good</h1>
+
+  <h1>Events For Good</h1>
+  <div class="flex flex-col items-center">
     <EventCard v-for="event in events" :key="event.id" :event="event" />
     <EventCategory v-for="event in events" :key="event.id" :event="event"></EventCategory>
 
@@ -69,12 +69,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.events {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .pagination {
   display: flex;
   width: 290px;

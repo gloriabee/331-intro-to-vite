@@ -9,7 +9,6 @@ import EventLayoutView from '@/views/event/LayoutView.vue'
 import StudentView from '@/views/StudentView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import NetworkErrorView from '@/views/NetworkErrorView.vue'
-
 import nProgress from 'nprogress'
 import EventService from '@/services/EventService'
 import { useEventStore } from '@/stores/event'

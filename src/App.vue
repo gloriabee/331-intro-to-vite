@@ -9,7 +9,7 @@ const pageSize = ref(2)
 </script>
 
 <template>
-  <div id="layout">
+  <div class="text-center font-sans text-gray-700 antialiased">
     <header>
       <!--flash message-->
       <div id="flashMessage" v-if="message">
@@ -37,13 +37,13 @@ const pageSize = ref(2)
 </template>
 
 <style>
-#layout {
+/* #layout {
   font-family: Avenir, Helevetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
+} */
 nav {
   padding: 30px;
 }

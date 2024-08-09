@@ -10,11 +10,11 @@ export default {
         sans: ['Avenir', 'Helvetica', 'Arial', 'sans-serif']
       },
       animation: {
-        fade: 'yellowFade 3s ease-in-out'
+        fade: 'greenFade 3s ease-in-out'
       },
       keyframes: {
         yellowFade: {
-          '0%': { backgorundColor: 'yellow' },
+          '0%': { backgorundColor: 'green' },
           '100%': { backgorundColor: 'transparent' }
         }
       }

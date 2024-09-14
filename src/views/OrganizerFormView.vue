@@ -1,69 +1,62 @@
 <script setup lang="ts">
-import type { Event } from '@/types'
+import type { Organizer } from '@/types'
 import { ref } from 'vue'
-import EventService from '@/services/EventService'
+import OrganizerService from '@/services/OrganizerService'
 import { useRouter } from 'vue-router'
 import { useMessageStore } from '@/stores/message'
 
-const event = ref<Event>({
+const organizer = ref<Organizer>({
   id: 0,
-  category: '',
-  title: '',
-  description: '',
-  location: '',
-  date: '',
-  time: '',
-  petsAllowed: false,
-  organizer: ''
+  address: '',
+  orgName: ''
 })
 
 const router = useRouter()
 const store = useMessageStore()
 
-function saveEvent() {
-  EventService.saveEvent(event.value)
+function saveOrganizer() {
+  OrganizerService.saveOrganizer(organizer.value)
     .then((response) => {
-      router.push({
-        name: 'event-detail-view',
-        params: { id: response.data.id }
-      })
-      store.updateMessage('You are successfully add a new event for ' + response.data.title)
+      // router.push({})
+      store.updateMessage('You are successfully add a new organizer for ' + response.data.orgName)
       setTimeout(() => {
         store.resetMessage()
       }, 3000)
     })
     .catch(() => {
-      router.push({ name: 'network-error-view' })
+      router.push({
+        name: 'network-error-view'
+      })
     })
 }
 </script>
 
 <template>
-  <div class="event-form">
-    <h1>Create an event</h1>
-    <form @submit.prevent="saveEvent">
-      <label>Category</label>
-      <input v-model="event.category" type="text" placeholder="Category" class="field" />
-      <h3>Name & describe your event</h3>
-      <label>Title</label>
-      <input v-model="event.title" type="text" placeholder="Title" class="field" />
+  <div class="organizer-form">
+    <h1>Add an Organizer</h1>
+    <form @submit.prevent="saveOrganizer">
+      <h3>What is Your Organization Address</h3>
+      <label>Address</label>
+      <input v-model="organizer.address" type="text" placeholder="Address" class="field" />
 
-      <label>Description</label>
-      <input v-model="event.description" type="text" placeholder="Description" class="field" />
-      <h3>Where is your event?</h3>
-
-      <Label>Location</Label>
-      <input v-model="event.location" type="text" placeholder="Location" class="field" />
+      <h3>What is your organization name?</h3>
+      <label>Organization Name</label>
+      <input
+        v-model="organizer.orgName"
+        type="text"
+        placeholder="Organization Name"
+        class="field"
+      />
 
       <button class="button" type="submit">Submit</button>
     </form>
 
-    <pre>{{ event }}</pre>
+    <pre>{{ organizer }}</pre>
   </div>
 </template>
 
 <style>
-.event-form {
+.organizer-form {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;

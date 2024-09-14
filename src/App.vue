@@ -52,6 +52,13 @@ const pageSize = ref(2)
           <RouterLink
             class="font-bold text-gray-700"
             exact-active-class="text-green-500"
+            :to="{ name: 'add-org' }"
+            >New Organization</RouterLink
+          >
+          |
+          <RouterLink
+            class="font-bold text-gray-700"
+            exact-active-class="text-green-500"
             :to="{ name: 'student' }"
             >Students</RouterLink
           >

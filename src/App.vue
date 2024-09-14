@@ -21,7 +21,7 @@ const pageSize = ref(2)
       <h1>Deploy with Vercel</h1>
 
       <!--wrapper class-->
-      
+
       <div class="wrapper">
         <nav class="py-6">
           <!-- <RouterLink to="/">Event</RouterLink> |
@@ -40,6 +40,13 @@ const pageSize = ref(2)
             exact-active-class="text-green-500"
             :to="{ name: 'about' }"
             >About</RouterLink
+          >
+          |
+          <RouterLink
+            class="font-bold text-gray-700"
+            exact-active-class="text-green-500"
+            :to="{ name: 'add-event' }"
+            >New Event</RouterLink
           >
           |
           <RouterLink
